@@ -1,5 +1,7 @@
+import 'package:fikra/home.dart';
 import 'package:flutter/material.dart';
 import '../bottomNavBar.dart';
+import 'Profile.dart';
 
 void main() => runApp(const FavoritesPage());
 
@@ -49,12 +51,30 @@ class _FavoritesPageState extends State<FavoritesPage> {
         bottomNavigationBar: BottomNavigationBarWidget(
           currentIndex: 1,
           onTabTapped: (index) {
-            // Handle tab tap here
-            print('Tapped on index: $index');
+            switch (index) {
+              case 0:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Home())
+                );
+                break;
+              case 1:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FavoritesPage()),
+                );
+                break;
+              case 2:
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+                break;
+            }
           },
         ),
-      ),
-    );
+        ),
+      );
   }
 
   Widget _buildSavedLocationsList() {
